@@ -1,0 +1,9 @@
+name: ChatBot
+version: '${version}'
+main: tech.erudo.mc.chatbot.chatbot.ChatBot
+api-version: 1.17
+authors: [ hirotask ]
+website: blog.erudo.tech
+commands:
+  chat:
+    description: this command send you chat
