@@ -11,6 +11,7 @@ import tech.erudo.mc.chatbot.chatbot.json.Chat;
 import tech.erudo.mc.chatbot.chatbot.json.JsonParser;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public final class ChatBot extends JavaPlugin implements CommandExecutor {
 
@@ -47,7 +48,7 @@ public final class ChatBot extends JavaPlugin implements CommandExecutor {
                     JsonParser jsonParser = new JsonParser();
                     Chat chat = jsonParser.parse(response);
                     player.sendMessage(chat.getText());
-                } catch (IOException | InterruptedException e) {
+                } catch (IOException | InterruptedException | ExecutionException e) {
                     throw new RuntimeException(e);
                 }
             } else {

@@ -17,8 +17,8 @@ public class Chat {
     private double mood;
     private double negaposi;
     private List<NegaposiList> negaposiList;
-    private List<Emotion> emotion;
-    private List<EmotionList> emotionList;
+    private Emotion emotion;
+    private List<Emotion> emotionList;
     private List<WordList> wordList;
     private String art;
     private String org;
@@ -29,20 +29,14 @@ public class Chat {
 
     class NegaposiList {
         private String word;
-        private int score;
+        private double score;
     }
 
     class Emotion {
-        private int angerFear;
-        private int joySad;
-        private int likeDislike;
-    }
-
-    class EmotionList {
         private String word;
-        private int angerFear;
-        private int joySad;
-        private int likeDislike;
+        private double angerFear;
+        private double joySad;
+        private double likeDislike;
     }
 
     class WordList {

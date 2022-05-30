@@ -5,6 +5,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class RequestManager {
 
@@ -23,12 +25,12 @@ public class RequestManager {
      *
      * @return レスポンス
      */
-    public String send() throws IOException, InterruptedException{
+    public String send() throws IOException, InterruptedException, ExecutionException {
         HttpClient client = HttpClient.newHttpClient();
 
-        HttpResponse<String> response = client.send(getRequest(), HttpResponse.BodyHandlers.ofString());
+        CompletableFuture<HttpResponse<String>> responseFuture = client.sendAsync(getRequest(), HttpResponse.BodyHandlers.ofString());
 
-        return response.body();
+        return responseFuture.get().body();
     }
 
     private HttpRequest getRequest() {
